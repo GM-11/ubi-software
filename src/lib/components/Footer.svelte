@@ -61,4 +61,25 @@
     border-bottom: 2px solid var(--text-color);
     transition: ease-in 0.2s;
   }
+
+
+  @media (max-width: 768px) {
+    .content {
+      flex-direction: column;
+      align-items: center;
+    }
+    section {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      align-items: center;
+    }
+    h1 {
+      margin-bottom: 1rem;
+    }
+    a {
+      margin: 0.5rem 0;
+    }
+  }
 </style>

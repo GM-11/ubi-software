@@ -4,7 +4,7 @@
   import { services } from "$lib/helpers/services";
 </script>
 
-<main>
+<main class="desktop">
   <h1>Range of services</h1>
 
   <div class="container">
@@ -22,13 +22,26 @@
   <h1>to fit all your needs</h1>
 </main>
 
+<main class="mobile">
+  <h2>Range of services to fit all your needs</h2>
+  <section class="services">
+    {#each services as service}
+      <Service
+        top={0}
+        left={0}
+        title={service.title}
+        content={service.content}
+      />
+    {/each}
+  </section>
+</main>
+
 <style>
-  main {
+  .desktop {
     background-color: var(--background-color);
     margin: 0;
     padding: 2rem;
     display: flex;
-    /* flex-direction: column; */
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -41,7 +54,6 @@
 
   .container {
     display: flex;
-    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -53,9 +65,36 @@
     height: auto;
   }
 
-  @media (min-width: 768px) {
+  .mobile {
+    display: none;
+    visibility: hidden;
+  }
+
+  @media (max-width: 768px) {
     h1 {
-      font-size: 3rem;
+      font-size: 5rem;
+      line-height: 1rem;
+    }
+
+    .desktop {
+      display: none;
+      visibility: hidden;
+    }
+
+    .mobile {
+      display: flex;
+      visibility: visible;
+      background-color: var(--background-color);
+      margin: 0;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .services {
+      display: grid;
+      padding :2rem;
+      grid-template-columns: 1fr 1fr;
     }
 
     .container {
@@ -67,18 +106,8 @@
       flex-direction: column;
     }
 
-    img {
-      width: 500px;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    h1 {
-      font-size: 4rem;
-    }
-
-    .container {
-      margin-bottom: 10rem;
+    h2 {
+      line-height: 2.5rem;
     }
 
     img {

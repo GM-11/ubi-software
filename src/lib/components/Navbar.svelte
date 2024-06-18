@@ -35,32 +35,30 @@
 
     <button on:click={() => toggleSidebar()}>
       <Icon icon="charm:menu-hamburger" color="#d5e0fc" width="20" />
-
-      <!-- <AlignJustify /> -->
     </button>
-
-    {#if isOpen}
-      <div
-        class="side-bar"
-        in:slide={{ axis: "x", duration: 400 }}
-        out:slide={{ axis: "x", duration: 400 }}
-      >
-        <br />
-        <button class="nav-element-sidebar" on:click={() => toggleSidebar()}
-          ><Icon icon="akar-icons:cross" color="#d5e0fc" width="20" />
-        </button>
-
-        <br />
-        <a on:click={() => toggleSidebar()} href="/"> Home </a>
-        <br />
-        <a on:click={() => toggleSidebar()} href="/about"> About Us </a>
-        <br />
-        <a on:click={() => toggleSidebar()} href="/contact"> Contact Us </a>
-        <br />
-        <a on:click={() => toggleSidebar()} href="/join"> Join Us </a>
-      </div>
-    {/if}
   </nav>
+
+  {#if isOpen}
+    <div
+      class="side-bar"
+      in:slide={{ axis: "x", duration: 400 }}
+      out:slide={{ axis: "x", duration: 400 }}
+    >
+      <br />
+      <button class="nav-element-sidebar" on:click={() => toggleSidebar()}
+        ><Icon icon="akar-icons:cross" color="#d5e0fc" width="20" />
+      </button>
+
+      <br />
+      <a on:click={() => toggleSidebar()} href="/"> Home </a>
+      <br />
+      <a on:click={() => toggleSidebar()} href="/about"> About Us </a>
+      <br />
+      <a on:click={() => toggleSidebar()} href="/contact"> Contact Us </a>
+      <br />
+      <a on:click={() => toggleSidebar()} href="/join"> Join Us </a>
+    </div>
+  {/if}
 </main>
 
 <style>
@@ -156,7 +154,7 @@
         rgba(83, 29, 235, 0.5)
       );
       border-radius: 10px;
-      width: 100%;
+      width: 90%;
       margin: 0;
       padding: 1rem;
     }
