@@ -16,6 +16,7 @@ import Navbar from "$lib/components/Navbar.svelte";
     padding: 0;
     margin: 0;
     font-family: "Poppins";
+
   }
 
   :root {
@@ -46,5 +47,9 @@ import Navbar from "$lib/components/Navbar.svelte";
     color: var(--text-color);
     margin: 0;
   }
+
+  /* Responsive styles */
+
+  /* Add more media queries as needed */
 
 </style>

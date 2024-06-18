@@ -1,14 +1,14 @@
 <script lang="ts">
-    export let transformTop: number;
-    export let transformLeft: number;
-    
+  export let transformTop: number;
+  export let transformLeft: number;
 </script>
 
-<div class="ball" style={
-    `
+<div
+  class="ball"
+  style={`
     transform: translate(${transformLeft}rem, ${transformTop}rem);
-    `
-}></div>
+    `}
+></div>
 
 <style>
   .ball {
@@ -19,5 +19,11 @@
     height: 30rem;
     border-radius: 100%;
     filter: blur(13rem);
+  }
+
+  @media (max-width: 768px) {
+    .ball {
+      display: none;
+    }
   }
 </style>

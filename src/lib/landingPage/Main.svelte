@@ -15,7 +15,6 @@
     background-color: var(--background-color);
     margin: 0;
     height: 100vh;
-
     flex-direction: column;
     text-align: center;
     justify-content: center;
@@ -47,6 +46,15 @@
   }
 
   h1 {
-    font-size: 7rem;
+    font-size: 4rem;
+  }
+
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 7rem;
+    }
+    main {
+      width: 100%;
+    }
   }
 </style>

@@ -1,21 +1,65 @@
-<script>
+<script lang="ts">
   import Ball from "$lib/components/Ball.svelte";
+  let name: string;
+  let email: string;
+  let message: String;
+
+  function emailIsValid() {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  async function sendMail(e: MouseEvent) {
+    if (!emailIsValid()) {
+      alert("Please enter a valid email address");
+      return;
+    }
+
+    e.preventDefault();
+    const res = await fetch("/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, email, message }),
+    });
+    const x = await res.json();
+    console.log(x);
+  }
 </script>
 
 <main>
-    <Ball transformLeft={20} transformTop={7}/>
+  <Ball transformLeft={20} transformTop={7} />
   <section>
+    <br /><br />
     <h1>Reach out to us</h1>
+    <br /><br />
   </section>
   <section>
     <form>
-      <input placeholder="Name" type="text" id="name" name="name" />
+      <input
+        bind:value={name}
+        placeholder="Name"
+        type="text"
+        id="name"
+        name="name"
+      />
 
-      <input placeholder="Email" type="email" id="email" name="email" />
+      <input
+        bind:value={email}
+        placeholder="Email"
+        type="email"
+        id="email"
+        name="email"
+      />
 
-      <textarea placeholder="Message" id="message" name="message"></textarea>
+      <textarea
+        bind:value={message}
+        placeholder="Message"
+        id="message"
+        name="message"
+      ></textarea>
 
-      <button type="submit">Submit</button>
+      <button on:click={sendMail}>Submit</button>
     </form>
   </section>
 </main>
@@ -71,5 +115,25 @@
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border-radius: 10px;
+  }
+
+  @media (max-width: 768px) {
+    main {
+      padding: 5rem 2rem;
+      flex-direction: column;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      height: 100%;
+      padding: 2rem 0;
+    }
+
+    section {
+      width: 100%;
+    }
   }
 </style>

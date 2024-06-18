@@ -8,10 +8,57 @@
   let email: string;
   let mobile: string;
   let expertise: string;
+
+  function emailIsValid() {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  function mobileNumberValid() {
+    return /^[0-9]{10}$/.test(mobile);
+  }
+
+  function validExpertise() {
+    return expertise !== "Select your expertise";
+  }
+
+  async function sendMail(e: MouseEvent) {
+    if (!emailIsValid()) {
+      alert("Please enter a valid email address");
+      return;
+    }
+
+    if (!mobileNumberValid()) {
+      alert("Please enter a valid mobile number");
+      return;
+    }
+
+    if (!validExpertise()) {
+      alert("Please select your expertise");
+      return;
+    }
+
+    e.preventDefault();
+    const res = await fetch("/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, email, mobile, expertise}),
+    });
+    const x = await res.json();
+    console.log(x);
+  }
+
 </script>
 
 <main>
-  <Ball transformLeft={20} transformTop={7} />
+  <Ball transformLeft={0} transformTop={7} />
+
+  <section>
+    <br /><br />
+    <h1>Join our incredible team</h1>
+    <br /><br />
+  </section>
 
   <section>
     <form>
@@ -46,12 +93,8 @@
         {/each}
       </select>
 
-      <button>Submit</button>
+      <button on:click={sendMail}>Submit</button>
     </form>
-  </section>
-
-  <section>
-    <h1>Join our incredible team</h1>
   </section>
 </main>
 
@@ -62,6 +105,7 @@
     background-color: var(--background-color);
     min-height: 100vh;
     display: flex;
+    flex-direction: row-reverse;
   }
   section {
     display: flex;
@@ -102,7 +146,7 @@
 
   form {
     width: 100%;
-    height: max-content;
+    height: 60%;
     padding: 2rem 0;
     display: flex;
     flex-direction: column;
@@ -111,5 +155,26 @@
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border-radius: 10px;
+  }
+
+  @media (max-width: 768px) {
+    main {
+      padding: 5rem 2rem;
+      flex-direction: column;
+    }
+    h1 {
+      text-align: center;
+      font-size: 4rem;
+      line-height: 4rem;
+    }
+
+    form {
+      height: 100%;
+      padding: 2rem 0;
+    }
+
+    section {
+      width: 100%;
+    }
   }
 </style>

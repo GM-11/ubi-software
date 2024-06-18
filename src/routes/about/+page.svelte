@@ -5,7 +5,7 @@
 
 <main>
   <Ball transformLeft={0} transformTop={0} />
-
+  <br /><br />
   <h1>Why our clients won’t stop raving about us</h1>
   <section>
     <img src={oct} width="400" alt="" />
@@ -54,7 +54,6 @@
     color: var(--text-color);
     line-height: 2.5rem;
     margin: 0;
-    width: 50%;
   }
 
   section {
@@ -63,5 +62,31 @@
     align-items: start;
     justify-content: space-between;
     text-align: end;
+  }
+
+  @media (max-width: 768px) {
+    main {
+      padding: 5rem 2rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      line-height: 4rem;
+    }
+
+    img {
+      display: none;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
+
+    section {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
   }
 </style>
