@@ -6,7 +6,7 @@
 <main>
   <Ball transformLeft={0} transformTop={0} />
   <br /><br />
-  <h1>Why our clients won’t stop raving about us</h1>
+  <h1>Why our clients won’t stop raving about us?</h1>
   <section>
     <img src={oct} width="400" alt="" />
 

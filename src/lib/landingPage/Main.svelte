@@ -46,15 +46,17 @@
   }
 
   h1 {
-    font-size: 4rem;
+    font-size: 7rem;
   }
 
-  @media (min-width: 768px) {
+  @media (max-width: 768px) {
     h1 {
-      font-size: 7rem;
+      font-size: 4rem;
     }
+
     main {
       width: 100%;
+      height: 40vh;
     }
   }
 </style>

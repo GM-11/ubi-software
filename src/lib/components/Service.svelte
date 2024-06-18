@@ -44,6 +44,7 @@
 
     display: flex;
     flex-direction: column;
+    border: 2px solid var(--text-color);
     align-items: center;
     justify-content: center;
     cursor: pointer;
@@ -71,20 +72,23 @@
     transition: 0.3s ease-in-out;
     z-index: 5;
     height: fit-content;
-    width: fit-content;
-    padding: 3rem;
+    width: 16rem;
+    padding: 1rem;
   }
 
   .service-desktop:hover h2 {
     opacity: 1;
     margin: 0;
+    line-height: 2rem;
     font-size: 2rem;
   }
 
   .service-desktop:hover p {
     opacity: 1;
     margin: 0;
-    font-size: 1rem;
+    line-height: 1.25rem;
+    margin: 1rem 0;
+    font-size: 1.25rem;
   }
 
   .service-mobile {
@@ -103,6 +107,7 @@
       justify-content: center;
       cursor: pointer;
       font-size: 0;
+      border: 2px solid white;
       transition: 0.3s ease-in-out;
       background: linear-gradient(
         to bottom right,
@@ -110,7 +115,6 @@
         var(--secondary-color),
         var(--background-color)
       );
-      margin: 1rem;
       border-radius: 10px;
       padding: 2rem;
       z-index: 0;

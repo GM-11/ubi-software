@@ -5,7 +5,7 @@
 </script>
 
 <main class="desktop">
-  <h1>Range of services</h1>
+  <h1>Range of services to fit all your needs</h1>
 
   <div class="container">
     <img src={logo} width="500" alt="Designer logo" />
@@ -19,11 +19,10 @@
       />
     {/each}
   </div>
-  <h1>to fit all your needs</h1>
 </main>
 
 <main class="mobile">
-  <h2>Range of services to fit all your needs</h2>
+  <h1>Range of services to fit all your needs</h1>
   <section class="services">
     {#each services as service}
       <Service
@@ -48,8 +47,10 @@
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: 4rem;
     margin: 1rem 0;
+    text-align: start;
+    line-height: 5rem;
   }
 
   .container {
@@ -72,8 +73,8 @@
 
   @media (max-width: 768px) {
     h1 {
-      font-size: 5rem;
-      line-height: 1rem;
+      font-size: 2rem;
+      line-height: 2.5rem;
     }
 
     .desktop {
@@ -86,6 +87,7 @@
       visibility: visible;
       background-color: var(--background-color);
       margin: 0;
+      padding: 1rem;
       justify-content: center;
       align-items: center;
       text-align: center;
@@ -104,10 +106,6 @@
 
     main {
       flex-direction: column;
-    }
-
-    h2 {
-      line-height: 2.5rem;
     }
 
     img {

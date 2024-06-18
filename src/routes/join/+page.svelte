@@ -124,6 +124,9 @@
     margin: 0.75rem;
     font-family: "Poppins", sans-serif;
   }
+  select {
+    width: 88%
+  }
 
   h1 {
     text-align: end;

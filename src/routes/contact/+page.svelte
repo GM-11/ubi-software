@@ -71,10 +71,12 @@
     background-color: var(--background-color);
     height: 100vh;
     display: flex;
+    text-align: start;
   }
   section {
     display: flex;
     flex-direction: column;
+    text-align: start;
     align-items: center;
     justify-content: start;
     width: 50%;
@@ -115,6 +117,10 @@
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border-radius: 10px;
+  }
+
+  h1 {
+    text-align: start;
   }
 
   @media (max-width: 768px) {
