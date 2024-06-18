@@ -4,31 +4,36 @@
 
   export let title: string;
   export let content: string;
+
+  let mobileIsOpen = false;
 </script>
 
 <div
   class="service-desktop"
   style={`transform: translate(${left}rem, ${top}rem);`}
 >
-  <section class="content">
+  <div class="content">
     <h2>{title}</h2>
     <p>{content}</p>
-  </section>
+  </div>
 </div>
 
-<div class="service-mobile">
-  <section class="content">
-    <h2>{title}</h2>
-    <br />
-    <br />
+<button
+  class="service-mobile"
+  on:click={() => {
+    mobileIsOpen = !mobileIsOpen;
+  }}
+>
+  <h2>{title}</h2>
+  <br />
+  {#if mobileIsOpen}
     <p>{content}</p>
-  </section>
-</div>
+  {/if}
+</button>
 
 <style>
   .service-desktop {
     position: absolute;
-    /* background-color: rgb(2, 61, 61); */
     border-radius: 100rem;
     background: linear-gradient(
       to bottom right,
@@ -46,7 +51,6 @@
     transition: 0.3s ease-in-out;
     height: 3.5rem;
     width: 3.5rem;
-
     transition: 0.3s ease-in-out;
     z-index: 0;
   }
@@ -100,17 +104,27 @@
       cursor: pointer;
       font-size: 0;
       transition: 0.3s ease-in-out;
-      /* height: 3.5rem;
-      width: 3.5rem; */
+      background: linear-gradient(
+        to bottom right,
+        var(--primary-color),
+        var(--secondary-color),
+        var(--background-color)
+      );
+      margin: 1rem;
+      border-radius: 10px;
       padding: 2rem;
       z-index: 0;
+      border: none;
     }
 
     .service-mobile h2 {
       font-size: 1rem;
       line-height: 1rem;
+      transition: 0.3s ease-in-out;
     }
     .service-mobile p {
+      transition: 0.3s ease-in-out;
+      margin-top: 0.75rem;
       font-size: 0.75rem;
       line-height: 0.75rem;
     }
